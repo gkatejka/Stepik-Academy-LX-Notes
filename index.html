@@ -7,8 +7,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <title>Stepik Academy + LX Notes</title>
   <style>
-  body {
-    line-height: 1.7;
+    body {
+    line-height: 1.8;
+  }
+  h1 {
+    font-size: 3em;
   }
 
   .color-1 {
@@ -20,18 +23,41 @@
   .color-3 {
     color: #57b459;
   }
+  .social-list {
+    margin: 0;
+    padding: .78em 0 0;
+    list-style-type: none;
+  }
+  .social-list > li {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 .7em;
+  }
+  input[type="date"]{
+    max-width: 140px;
+  }
+
+  @media (max-width: 780px) {
+    h1 {
+      font-size: 2em;
+    }
+
+    .form-row {
+      justify-content: flex-start;
+    }
+  }
   </style>
 </head>
 
-<body class="bg-light pb-5">
+<body class="bg-light">
   <header class="container mt-3">
     <nav class="row navbar navbar-expand-lg navbar-light bg-light">
       <div class="col-3">
         <a class="navbar-brand" href="#">
-          <img src="static/logo.svg" alt="LDX" width="70" />
+          <img src="static/logo.png" alt="LDX" width="85" />
         </a>
       </div>
-      <div class="col-9 text-right">
+      <div class="col-9 text-right d-none d-sm-block">
         <ul class="navbar-nav justify-content-end flex-row">
           <li class="nav-item active px-4">
             <a class="nav-link" href="#">О проекте</a>
@@ -43,54 +69,40 @@
       </div>
     </nav>
   </header>
-  <main class="container mt-4">
-    <section class="pt-4">
+  <main class="mt-5">
+    <section class="container pt-3">
       <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
-          <h1 class="text-center font-weight-bold pb-5">Полезные события для тех, кто создает образование</h1>
+        <div class="col-12 col-md-8 offset-md-2">
+          <h1 class="text-center font-weight-bold pb-5 px-2">Полезные события для тех, кто создает образование</h1>
         </div>
       </div>
-      <div class="row pb-3">
-        <div class="col-12 col-md-10 offset-md-1 rounded py-2 px-3" style="background-color: #d8d8d8;">
-          <div class="form-row align-items-center justify-content-between">
-            <div class="col-auto my-1">
-              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>17 авг</option>
-                <option value="1">18 авг</option>
-                <option value="2">19 авг</option>
-                <option value="3">21 авг</option>
-              </select>
+      <div class="row pb-5 mb-3">
+        <div class="col-11 mx-auto rounded py-2 px-3" style="background-color: #B8B8B8;">
+          <div class="form-row flex-lg-nowrap align-items-center justify-content-between">
+            <div class="col-12 col-md-auto my-1">
+              <input type="date">
+              <span class="font-weight-bold px-2">-</span>
+              <input type="date">
             </div>
-            <div class="col-auto mt-2">
-              <label class="font-weight-bold">-</label>
-            </div>
-            <div class="col-auto pr-4 my-1">
-              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>22 авг</option>
-                <option value="1">23 авг</option>
-                <option value="2">24 авг</option>
-                <option value="3">25 авг</option>
-              </select>
-            </div>
-            <div class="col-auto pr-2 my-1">
-              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>На любую тему</option>
-                <option value="1">Разработка</option>
-                <option value="2">Дизайн</option>
-                <option value="3">Менеджмент</option>
-              </select>
-            </div>
-            <div class="col-auto pr-3 my-1">
-              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>В любом месте</option>
-                <option value="1">Онлайн</option>
-                <option value="2">Москва</option>
-                <option value="3">Петербург</option>
-              </select>
+            <div class="col-12 col-md-auto px-lg-3 my-1">
+              <div class="row">
+                <div class="col-6">
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    <option selected>На любую тему</option>
+                    <option value="1">Разработка</option>
+                    <option value="2">Дизайн</option>
+                    <option value="3">Менеджмент</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    <option selected>На любую тему</option>
+                    <option value="1">Разработка</option>
+                    <option value="2">Дизайн</option>
+                    <option value="3">Менеджмент</option>
+                  </select>
+                </div>
+              </div>
             </div>
             <div class="col-auto pr-3 my-1">
               <div class="form-check d-flex align-items-center">
@@ -106,114 +118,154 @@
           </div>
         </div>
       </div>
-      <div class="row mt-5">
-        <div class="col-12 col-md-4">
-          <div class="card mb-4">
-            <div class="pt-3 px-3">
-              <p class="m-0 p-0" style="font-size: 0.85em;"><b>с 20 авг</b> 15:00</p>
-              <p>
-                <span class="badge badge-pill badge-dark">Мастер-класс</span>
-                <span class="badge badge-pill badge-primary">Москва и онлайн</span>
-              </p>
-              <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
-              <p class="my-2">
-                <img src="static/icon.png" alt="" width="20">
-                <span>Elearning brothers</span>
-              </p>
-              <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
-            </div>
-            <hr class="mb-2">
-            <div class="row px-3 pb-2" style="font-size: 0.85em;">
-              <div class="col-4">
-                <span class="color-1"><b>Платно</b></span>
+    </section>
+    <section style="background-color: #ffffff;">
+      <div class="container pt-5 pb-4">
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <div class="card mb-4">
+              <div class="pt-3 px-3">
+                <p class="m-0 p-0" style="font-size: 0.85em;"><b>с 20 авг</b> 15:00</p>
+                <p>
+                  <span class="badge badge-pill badge-dark">Мастер-класс</span>
+                  <span class="badge badge-pill badge-primary">Москва и онлайн</span>
+                </p>
+                <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
+                <p class="my-2">
+                  <img src="static/icon.png" alt="" width="20">
+                  <span>Elearning brothers</span>
+                </p>
+                <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
               </div>
-              <div class="col-8 text-right">
-                <a href="#" class="pr-3">Подробнее</a>
-                <a href="#">В календарь</a>
+              <hr class="mb-2">
+              <div class="row px-3 pb-2" style="font-size: 0.85em;">
+                <div class="col-4">
+                  <span class="color-1"><b>Платно</b></span>
+                </div>
+                <div class="col-8 text-right">
+                  <a href="#" class="pr-3">Подробнее</a>
+                  <a href="#">В календарь</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card mb-4">
+              <div class="pt-3 px-3">
+                <p class="m-0 p-0" style="font-size: 0.85em;"><b>с 20 авг</b> 15:00</p>
+                <p>
+                  <span class="badge badge-pill badge-dark">Курс</span>
+                  <span class="badge badge-pill badge-success">Онлайн</span>
+                </p>
+                <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
+                <p class="my-2">
+                  <img src="static/icon.png" alt="" width="20">
+                  <span>Elearning brothers</span>
+                </p>
+                <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
+              </div>
+              <hr class="mb-2">
+              <div class="row px-3 pb-2" style="font-size: 0.85em;">
+                <div class="col-4">
+                  <span class="color-2"><b>Есть скидка</b></span>
+                </div>
+                <div class="col-8 text-right">
+                  <a href="#" class="pr-2">Подробнее</a>
+                  <a href="#">В календарь</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card mb-4">
+              <div class="pt-3 px-3">
+                <p class="m-0 p-0" style="font-size: 0.85em;"><b>с 23 авг</b> 10:00</p>
+                <p>
+                  <span class="badge badge-pill badge-success">Мастер-класс</span>
+                  <span class="badge badge-pill badge-primary">Москва и онлайн</span>
+                </p>
+                <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
+                <p class="my-2">
+                  <img src="static/icon.png" alt="" width="20">
+                  <span>Ракурс</span>
+                </p>
+                <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
+              </div>
+              <hr class="mb-2">
+              <div class="row px-3 pb-2" style="font-size: 0.85em;">
+                <div class="col-4">
+                  <span class="color-3"><b>Бесплатно</b></span>
+                </div>
+                <div class="col-8 text-right">
+                  <a href="#" class="pr-2">Подробнее</a>
+                  <a href="#">В календарь</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="card mb-4">
-            <div class="pt-3 px-3">
-              <p class="m-0 p-0" style="font-size: 0.85em;"><b>с 20 авг</b> 15:00</p>
-              <p>
-                <span class="badge badge-pill badge-dark">Курс</span>
-                <span class="badge badge-pill badge-success">Онлайн</span>
-              </p>
-              <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
-              <p class="my-2">
-                <img src="static/icon.png" alt="" width="20">
-                <span>Elearning brothers</span>
-              </p>
-              <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
-            </div>
-            <hr class="mb-2">
-            <div class="row px-3 pb-2" style="font-size: 0.85em;">
-              <div class="col-4">
-                <span class="color-2"><b>Есть скидка</b></span>
-              </div>
-              <div class="col-8 text-right">
-                <a href="#" class="pr-2">Подробнее</a>
-                <a href="#">В календарь</a>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col-12 col-md-6 offset-md-3 my-3">
+            <p class="h5 text-center font-weight-bold">
+              Показаны первые 75 событий, чтобы <br>увидеть больше, уточните запрос.
+            </p>
           </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="card mb-4">
-            <div class="pt-3 px-3">
-              <p class="m-0 p-0" style="font-size: 0.85em;"><b>с 23 авг</b> 10:00</p>
-              <p>
-                <span class="badge badge-pill badge-success">Мастер-класс</span>
-                <span class="badge badge-pill badge-primary">Москва и онлайн</span>
-              </p>
-              <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
-              <p class="my-2">
-                <img src="static/icon.png" alt="" width="20">
-                <span>Ракурс</span>
-              </p>
-              <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
-            </div>
-            <hr class="mb-2">
-            <div class="row px-3 pb-2" style="font-size: 0.85em;">
-              <div class="col-4">
-                <span class="color-3"><b>Бесплатно</b></span>
-              </div>
-              <div class="col-8 text-right">
-                <a href="#" class="pr-2">Подробнее</a>
-                <a href="#">В календарь</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-10 col-md-4 offset-md-4">
-          <p class="text-center font-weight-bold">
-            Показаны первые 75 событий, чтобы увидеть больше, уточните запрос.
-          </p>
         </div>
       </div>
     </section>
-    <section class="row mt-5 pt-3">
-      <div class="col-12 col-md-4 offset-md-2">
-        <h2 class="h2 pb-2 font-weight-bold">О&nbsp;проекте</h2>
-        <p>Вот вам яркий пример современных тенденций&nbsp;&mdash; внедрение современных методик способствует повышению качества кластеризации усилий. В&nbsp;своем стремлении повысить качество жизни, они забывают, что дальнейшие развитие различных форм деятельности играет важную роль в&nbsp;формировании экспериментов, поражающих по&nbsp;своей масштабности и&nbsp;грандиозности. В&nbsp;своем стремлении улучшить пользовательский опыт мы&nbsp;упускаем, что интерактивные прототипы ассоциативно распределены по&nbsp;отраслям.</p>
-      </div>
-      <div class="col-12 col-md-4">
-        <img src="static/person.jpg" alt="" class="img-fluid" width="340">
+    <section class="container">
+      <div class="row mt-5 pt-3 px-md-4">
+        <div class="col-12 col-md-6 pr-5">
+          <h2 class="h1 pb-2 font-weight-bold">О&nbsp;проекте</h2>
+          <p>Вот вам яркий пример современных тенденций&nbsp;&mdash; внедрение современных методик способствует повышению качества кластеризации усилий. В&nbsp;своем стремлении повысить качество жизни, они забывают, что дальнейшие развитие различных форм деятельности играет важную роль в&nbsp;формировании экспериментов, поражающих по&nbsp;своей масштабности и&nbsp;грандиозности. В&nbsp;своем стремлении улучшить пользовательский опыт мы&nbsp;упускаем, что интерактивные прототипы ассоциативно распределены по&nbsp;отраслям.</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <img src="static/person.jpg" alt="" class="img-fluid" width="490">
+        </div>
       </div>
     </section>
-    <section class="row mt-5">
-      <div class="col-12 col-md-6 offset-md-3 text-center">
-        <h2 class="h2 pb-2 font-weight-bold">Добавить событие</h2>
+    <section class="row py-5 mt-5" style="background-color: #ffffff;">
+      <div class="col-12 col-md-6 offset-md-3 text-center px-5 pt-3 mb-4">
+        <h2 class="h1 pb-4 font-weight-bold">Добавить событие</h2>
         <p>Заполните форму, и&nbsp;мы&nbsp;добавим ваше событие в&nbsp;календарь. Обратите внимание, что мы&nbsp;размещаем только события в&nbsp;образовании. Прежде чем заполнять заявку ознакомтесь с&nbsp;правилами.</p>
-        <a href="#" class="btn btn-dark">Хочу добаить событие</a>
+        <a href="#" class="btn btn-dark py-3 px-4 mt-3">Хочу добавить событие</a>
       </div>
     </section>
   </main>
+  <footer class="container">
+    <div class="row py-5">
+      <div class="col-12 col-md-10 offset-md-1">
+        <p>Если у вас есть вопросы или предложения, напишите нам: <a href="mailto:mymail@me.click" class="text-dark" style="text-decoration: underline;">mymail@me.click</a></p>
+      </div>
+      <div class="col-12 col-md-6 offset-md-1">
+        <p><b>Следите за&nbsp;обновлениями</b> на&nbsp;наших страницах в&nbsp;соцсетях, <br>чтобы всегда быть в&nbsp;курсе событий в&nbsp;образовании</p>
+      </div>
+      <div class="col-12 col-md-4">
+        <ul class="social-list">
+          <li>
+            <a href="#" target="_blank">
+              <img src="static/icon-fb.svg" width="42">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="static/icon-telegram.svg" width="42">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="static/icon-insta.svg" width="42">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="static/iocn-vk.svg" width="42">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
