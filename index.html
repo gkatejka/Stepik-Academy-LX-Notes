@@ -98,9 +98,27 @@
     h1 {
       font-size: 2em;
     }
+    .btn-group {
+      max-width: 100%;
+      margin-bottom:10px; 
+    }
+
+    .date {
+      max-width: 100%;
+    }
+
+    .dropdown-menu.show {
+      min-width: 100%;
+    }
 
     .form-row {
       justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .form-check-label {
+      font-size: 0.85rem;
     }
   }
   </style>
@@ -135,7 +153,7 @@
       </div>
       <div class="row pb-5 mb-3">
         <div class="col-11 mx-auto rounded py-2 px-3" style="background-color: #B8B8B8;">
-          <form id="filter_form" class="form-row flex-lg-nowrap align-items-center justify-content-between">
+          <form id="filter_form" class="form-row align-items-center">
             <div class="col-12 col-md-auto my-1 date-wrap">
               <div class="form-group">
                 <div class='input-group date datetimepicker'>
@@ -157,14 +175,14 @@
             </div>
             <div class="col-12 col-md-auto px-lg-3 my-1">
               <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-sm-6 pl-lg-0">
                   <select name="framework[]" multiple class="form-control select-theme">
                     <option value="development">Разработка</option>
                     <option value="design">Дизайн</option>
                     <option value="managment">Менеджмент</option>
                   </select>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-sm-6 pl-lg-0">
                   <select name="framework[]" multiple class="form-control select-theme">
                     <option value="development">Разработка</option>
                     <option value="design">Дизайн</option>
@@ -173,7 +191,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-auto pr-3 my-1">
+            <div class="col-6 col-md-3 pr-2 my-1">
               <div class="form-check d-flex align-items-center">
                 <input class="form-check-input mt-0" type="checkbox" id="autoSizingCheck2">
                 <label class="form-check-label font-weight-bold" for="autoSizingCheck2">
@@ -181,7 +199,7 @@
                 </label>
               </div>
             </div>
-            <div class="col-auto my-1">
+            <div class="col-6 col-md-auto my-1">
               <button type="submit" class="btn btn-dark">Показать</button>
             </div>
           </form>
