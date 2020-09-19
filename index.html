@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/css/bootstrap-datetimepicker-standalone.css" />
+  <link rel="stylesheet" href="static/css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
   <title>Stepik Academy + LX Notes</title>
   <style>
     body {
@@ -36,7 +39,61 @@
   input[type="date"]{
     max-width: 140px;
   }
-
+  .date-wrap {
+    display: flex;
+    align-items: center;
+  }
+  .date-wrap .form-group {
+    margin-bottom: 0;
+  }
+  .date-wrap .form-control {
+    border: 0;
+  }
+  .date-wrap .form-control:focus {
+    box-shadow: none;
+  }
+  .date-wrap .input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 0;
+    border-left: 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .date {
+    max-width: 150px;
+  }
+  .btn {
+    padding: 8px 12px;
+  }
+  .btn:focus {
+    box-shadow: none;
+  }
+  .btn-group {
+    width: 100%!important;
+    max-width: 150px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    background: #ffffff;
+  }
+  .dropdown-menu.show {
+    padding: 5px 0;
+    min-width: 150px;
+  }
+  .multiselect-item.filter {
+    display: none;
+  }
+  .select-theme + .btn-group .multiselect-container > li > a {
+    outline: none;
+  }
+  .select-theme + .btn-group .multiselect-container > li > a > label {
+    display: block;
+    padding: 3px 10px;
+  }
   @media (max-width: 780px) {
     h1 {
       font-size: 2em;
@@ -54,11 +111,11 @@
     <nav class="row navbar navbar-expand-lg navbar-light bg-light">
       <div class="col-3">
         <a class="navbar-brand" href="#">
-          <img src="static/logo.png" alt="LDX" width="85" />
+          <img src="static/img/logo.png" alt="LDX" width="85" />
         </a>
       </div>
       <div class="col-9 text-right d-none d-sm-block">
-        <ul class="navbar-nav justify-content-end flex-row">
+        <ul class="navbar-nav justify-content-end flex-row align-items-baseline">
           <li class="nav-item active px-4">
             <a class="nav-link" href="#">О проекте</a>
           </li>
@@ -78,28 +135,40 @@
       </div>
       <div class="row pb-5 mb-3">
         <div class="col-11 mx-auto rounded py-2 px-3" style="background-color: #B8B8B8;">
-          <div class="form-row flex-lg-nowrap align-items-center justify-content-between">
-            <div class="col-12 col-md-auto my-1">
-              <input type="date">
+          <form id="filter_form" class="form-row flex-lg-nowrap align-items-center justify-content-between">
+            <div class="col-12 col-md-auto my-1 date-wrap">
+              <div class="form-group">
+                <div class='input-group date datetimepicker'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+              </div>
               <span class="font-weight-bold px-2">-</span>
-              <input type="date">
+              <div class="form-group">
+                <div class='input-group date datetimepicker'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+              </div>
             </div>
             <div class="col-12 col-md-auto px-lg-3 my-1">
               <div class="row">
                 <div class="col-6">
-                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>На любую тему</option>
-                    <option value="1">Разработка</option>
-                    <option value="2">Дизайн</option>
-                    <option value="3">Менеджмент</option>
+                  <select name="framework[]" multiple class="form-control select-theme">
+                    <option value="development">Разработка</option>
+                    <option value="design">Дизайн</option>
+                    <option value="managment">Менеджмент</option>
                   </select>
                 </div>
                 <div class="col-6">
-                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>На любую тему</option>
-                    <option value="1">Разработка</option>
-                    <option value="2">Дизайн</option>
-                    <option value="3">Менеджмент</option>
+                  <select name="framework[]" multiple class="form-control select-theme">
+                    <option value="development">Разработка</option>
+                    <option value="design">Дизайн</option>
+                    <option value="managment">Менеджмент</option>
                   </select>
                 </div>
               </div>
@@ -115,13 +184,13 @@
             <div class="col-auto my-1">
               <button type="submit" class="btn btn-dark">Показать</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>
     <section style="background-color: #ffffff;">
       <div class="container pt-5 pb-4">
-        <div class="row">
+        <div class="row row-flex">
           <div class="col-12 col-md-4">
             <div class="card mb-4">
               <div class="pt-3 px-3">
@@ -132,7 +201,7 @@
                 </p>
                 <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
                 <p class="my-2">
-                  <img src="static/icon.png" alt="" width="20">
+                  <img src="static/img/icon.png" alt="" width="20">
                   <span>Elearning brothers</span>
                 </p>
                 <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
@@ -159,7 +228,7 @@
                 </p>
                 <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
                 <p class="my-2">
-                  <img src="static/icon.png" alt="" width="20">
+                  <img src="static/img/icon.png" alt="" width="20">
                   <span>Elearning brothers</span>
                 </p>
                 <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
@@ -186,7 +255,7 @@
                 </p>
                 <p class="h5 font-weight-bold">Управление знаниями в&nbsp;учебных заведениях</p>
                 <p class="my-2">
-                  <img src="static/icon.png" alt="" width="20">
+                  <img src="static/img/icon.png" alt="" width="20">
                   <span>Ракурс</span>
                 </p>
                 <p class="p-0 m-0">На&nbsp;вебинаре будут рассмотрены подходы к&nbsp;управлению...</p>
@@ -220,7 +289,7 @@
           <p>Вот вам яркий пример современных тенденций&nbsp;&mdash; внедрение современных методик способствует повышению качества кластеризации усилий. В&nbsp;своем стремлении повысить качество жизни, они забывают, что дальнейшие развитие различных форм деятельности играет важную роль в&nbsp;формировании экспериментов, поражающих по&nbsp;своей масштабности и&nbsp;грандиозности. В&nbsp;своем стремлении улучшить пользовательский опыт мы&nbsp;упускаем, что интерактивные прототипы ассоциативно распределены по&nbsp;отраслям.</p>
         </div>
         <div class="col-12 col-md-6">
-          <img src="static/person.jpg" alt="" class="img-fluid" width="490">
+          <img src="static/img/person.jpg" alt="" class="img-fluid" width="490">
         </div>
       </div>
     </section>
@@ -244,22 +313,22 @@
         <ul class="social-list">
           <li>
             <a href="#" target="_blank">
-              <img src="static/icon-fb.svg" width="42">
+              <img src="static/img/icon-fb.svg" width="42">
             </a>
           </li>
           <li>
             <a href="#" target="_blank">
-              <img src="static/icon-telegram.svg" width="42">
+              <img src="static/img/icon-telegram.svg" width="42">
             </a>
           </li>
           <li>
             <a href="#" target="_blank">
-              <img src="static/icon-insta.svg" width="42">
+              <img src="static/img/icon-insta.svg" width="42">
             </a>
           </li>
           <li>
             <a href="#" target="_blank">
-              <img src="static/iocn-vk.svg" width="42">
+              <img src="static/img/iocn-vk.svg" width="42">
             </a>
           </li>
         </ul>
@@ -269,6 +338,47 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="static/js/jquery-3.2.1.min.js"></script>
+  <script src="static/js/moment-with-locales.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('.datetimepicker').datetimepicker({
+      locale: 'ru',
+      stepping: 10,
+      format: 'DD.MM.YYYY',
+      useCurrent: true,
+      defaultDate: moment()
+    });
+
+    $('.select-theme').multiselect({
+      nonSelectedText: 'На любую тему',
+      enableFiltering: true,
+      enableCaseInsensitiveFiltering: true,
+      buttonWidth:'400px'
+    });
+
+    $('#filter_form').on('submit', function(event){
+      event.preventDefault();
+      var form_data = $(this).serialize();
+      $.ajax({
+       url:"insert.php",
+       method:"POST",
+       data:form_data,
+       success:function(data)
+       {
+        $('.select-theme option:selected').each(function(){
+          $(this).prop('selected', false);
+        });
+        $('.select-theme').multiselect('refresh');
+        alert(data);
+       }
+      });
+     });
+  });
+  </script>
 </body>
 
 </html>
